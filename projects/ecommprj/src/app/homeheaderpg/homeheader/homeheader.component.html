@@ -1,0 +1,41 @@
+
+<mat-toolbar color="primary" class="matbar">
+  <mat-toolbar-row >
+    <span><img src="../../../assets/images/ab.jpg" height="50" width="50" class="imglogo"/></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a mat-flat-button color="primary"   routerLink="">About Us</a>
+
+    <span class="example-spacer"></span>
+
+    <a mat-flat-button color="primary" routerLink="/login">Login</a>&nbsp;&nbsp;
+    <a mat-flat-button color="primary" routerLink="/register">Register</a>&nbsp;&nbsp;
+    <a mat-flat-button color="primary" routerLink="" [matMenuTriggerFor]="menu" (click)="showcart()">
+          <img src="../../../assets/images/trolley_4290854.png" height="20" width="20"/>
+    </a>
+
+
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+<mat-menu #menu="matMenu">
+
+  <table class="table table-responsive " style="border: 2px solid black;">
+    <tr *ngFor="let a of cart">
+        <td><img src="data:image/*;base64,{{a.pic}}" height="50" width="50"></td>
+        <td>{{a.prnm}}</td>
+        <td>{{a.price}}</td>
+
+        <td><button  mat-fab (click)="deletecart(a)" aria-label="Example icon button with a delete icon">
+          <mat-icon>delete</mat-icon>
+        </button></td>
+    </tr>
+  </table>
+  <hr>
+  <h5>Total : {{tot}}</h5>
+
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  <button type="button" mat-raised-button color="accent"  aria-label="Order Now" (click)="orderitems()"> Order Now </button>
+
+
+</mat-menu>
+<router-outlet></router-outlet>

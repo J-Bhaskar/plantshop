@@ -1,0 +1,142 @@
+<app-adminheader></app-adminheader>
+<div class="container">
+
+<div class="row container">
+<div class="navbar bg-white">
+      <ul class="navbar-nav">
+          <li class="nav-item">
+             <a href="#" class="nav-link text-black"  data-bs-toggle="modal" data-bs-target="#mod_1" > Add New Item </a>
+          </li>
+      </ul>
+      <form class="d-flex m-auto me-0" role="search">
+              <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+              <br>
+      <div>
+              <label for="customRange3" class="form-label">Price:</label>
+      <input type="range" onclick="func()" class="form-range" name="customRange3" min="400" max="2000" step="100" id="customRange3">
+      <br><span id="txt"></span>
+              <script> function func()
+                           {
+                              var s= document.getElementById("customRange3").value;
+                              document.getElementById("txt").innerHTML="Rs."+ s;
+                            }
+              </script>
+      </div>
+      </form>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="mod_1" aria-hidden="true">
+  <form>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Insert New Cake Information </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <!-- modal body -->
+
+            <div class="container mt-5 g-2">
+
+                 <div class="form-group">
+                      <div class="row">
+                              <div class="col-sm-3">
+                                      <label for="prnm" class="form-label"> Plant Name :  </label>
+                              </div>
+                              <div class="col-sm-6">
+                                  <input type="text" class="form-control" name="prnm" placeholder="Enter plant Name" required
+                                  [(ngModel)]="prnm"
+                                  [ngModelOptions]="{standalone: true}"
+                                  >
+                              </div>
+                      </div>
+                      <br>
+                      <div class="row">
+                          <div class="col-sm-3">
+                                  <label for="price" class="form-label"> Price :  </label>
+                          </div>
+                          <div class="col-sm-6">
+                              <input type="text" class="form-control" id="price" name="price" placeholder="Price" required
+                              [(ngModel)]="price"
+                             [ngModelOptions]="{standalone: true}">
+                          </div>
+                      </div>
+                      <br>
+                      <div class="row">
+                        <div class="col-sm-3">
+                                <label for="cat" class="form-label"> Category :  </label>
+                        </div>
+                        <div class="col-sm-6">
+                          <select    [ngModelOptions]="{standalone: true}" (change)="handleSelectChange($event)">
+                                <option>Select category</option>
+                                <option *ngFor="let a of catobj" [value]="a.catid">{{a.catnm}}</option>
+                          </select>
+                        </div>
+                     </div>
+                      <br>
+                      <div class="row">
+                          <div class="col-sm-3">
+                                  <label for="qty" class="form-label"> Quantity :  </label>
+                          </div>
+                          <div class="col-sm-6">
+                              <input type="text" class="form-control"  name="qty" placeholder="Quantity" required
+                              [(ngModel)]="qty"
+                               [ngModelOptions]="{standalone: true}">
+                          </div>
+                      </div>
+                      <br>
+                      <div class="row">
+                          <div class="col-sm-3">
+                                  <label for="pic" class="form-label"> Image :  </label>
+                          </div>
+                          <div class="col-sm-6 gx-5">
+                              <input type="file" class="form-control" id="pic" name="pic"
+                              (change)="onFileSelected($event)"   [ngModelOptions]="{standalone: true}">
+                          </div>
+                      </div>
+                      <br>
+                      <div class="row">
+                          <div class="col-sm-3">
+                                  <label for="descrip" class="form-label"> Description :  </label>
+                          </div>
+                          <div class="col-sm-6">
+                              <textarea rows="7" cols="30" placeholder="Description"  name="descr"
+                              [(ngModel)]="desc"
+                               [ngModelOptions]="{standalone: true}"></textarea>
+                          </div>
+                      </div>
+                      <br>
+
+                </div>
+
+            </div>
+
+                <!-- Form Ends -->
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="addnewclose()">Close</button>
+          <button type="submit" class="btn btn-primary"  data-bs-dismiss="modal" (click)="addnewsave()">Save</button>
+        </div>
+      </div>
+    </div>
+    </form>
+  </div>
+
+
+<div class="row container">
+<div class="col-12 m-3 p-1">
+
+
+    <app-listproductpg [prdt]="prdt"></app-listproductpg>
+
+</div>
+</div>
+
+
+

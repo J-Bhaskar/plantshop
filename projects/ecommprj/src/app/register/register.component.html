@@ -1,0 +1,33 @@
+<!-- register.component.html -->
+<div class="container-fluid">
+  <app-homeheader></app-homeheader>
+   </div>
+<div class="container">
+  <mat-card>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;
+    <mat-card-title >Register</mat-card-title><br><br>
+    <mat-card-content>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill">
+          <mat-label>Username : </mat-label>
+          <input matInput formControlName="username" type="text" name="username" required><br><br>
+          <mat-error *ngIf="registerForm.get('username').invalid"></mat-error><br>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Password : </mat-label>
+          <input matInput formControlName="password" type="password" name="password" required><br><br>
+          <mat-error *ngIf="registerForm.get('password').invalid"></mat-error><br>
+        </mat-form-field>
+  
+        
+  
+        <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.valid">Register</button><br><br>
+        <a mat-flat-button color="warn" routerLink="/login">Login</a>&nbsp;&nbsp;
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+  

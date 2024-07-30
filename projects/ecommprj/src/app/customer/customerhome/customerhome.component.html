@@ -1,0 +1,163 @@
+
+<div class="container-fluid">
+ <app-homeheader></app-homeheader>
+  </div>
+  <!------------------------------------->
+  <div class="container-fluid mt-2">
+    <img src="../../../assets/images/HeroSection/1.jpg" alt="Snow" style="width:100%;height:600px;">
+    <div class="centered text-white pacifico-regular">
+      <br><br><br>
+      <div style="color: rgb(5, 56, 21);">AB-Plants</div><br>
+      <div style="color: blue;" class="ps-5 ft" >Where nature comes home.</div>
+
+      </div>
+  </div>
+  <!-------------------------------------->
+    <section>
+      <div class="pt-3 pacifico-regular text-center">Our Categories </div>
+
+    </section>
+  <hr>
+    <br>
+
+    <div class="container-fluid pacifico-regular text-center d-flex justify-content-center">
+
+      <ul *ngFor="let a of catobj" >
+          <li class="ms-5"> <button style=" border: 1px solid; outline:auto;background-color:rgb(48, 176, 112);font-size:35px;" class="p-1"
+             (click)="catnovalue(a.catid)">{{a.catnm}}</button></li>
+      </ul>
+
+
+
+    </div>
+
+    <section>
+
+      <!-------------------------------------------------->
+      <div class="mt-5">
+
+       <app-listcustomeritems></app-listcustomeritems>
+
+    </div>
+
+    </section>
+
+  
+    <div class="container-fluid footer">
+        <div class="row">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+          <div class="col-3"> 
+              <!--<p style="text-align: center;" class="mt-5">&copy; 2024 AB-Plants - All Rights Reserved</p>
+              <hr>
+              <p class="nav-links" style="text-align: center;" class="mt-2">About us</p>
+              <p style="text-align: center;" class="mt-2">Contact us</p>
+              ---------------------------------------------->
+              
+      
+              
+            </div>
+
+            <div class="col-4"></div>
+            <div class="col-4">
+
+                  <!-- contact form-->
+
+
+  <!--Section: Contact v.2-->
+  <section class="mb-4">
+
+    <!--Section heading-->
+    <h2 class="h1-responsive font-weight-bold text-left my-4" style="font-family: Pacifico, cursive;">Contact us</h2>
+    <!--Section description-->
+
+
+    <div class="row">
+
+        <!--Grid column-->
+        <div class="col-md-9 mb-md-0 mb-5">
+            <form id="contact-form" name="contact-form" action="" method="POST">
+
+                <!--Grid row-->
+                <div class="row">
+
+                    <!--Grid column-->
+                    <div class="col-md-6">
+                        <div class="md-form mb-2">
+                          <label for="name" class="mb-2">Your name</label>
+                            <input type="text" id="name" name="name" class="form-control">
+
+                        </div>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-md-6">
+                        <div class="md-form mb-2">
+                          <label for="email" class="mb-2">Your email</label>
+                            <input type="text" id="email" name="email" class="form-control">
+
+                        </div>
+                    </div>
+                    <!--Grid column-->
+
+                </div>
+                <!--Grid row-->
+
+                <!--Grid row-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="md-form mb-2">
+                          <label for="subject" class="mb-2">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-control">
+
+                        </div>
+                    </div>
+                </div>
+                <!--Grid row-->
+
+                <!--Grid row-->
+                <div class="row">
+
+                    <!--Grid column-->
+                    <div class="col-md-12">
+
+                        <div class="md-form">
+                          <label for="message" class="mb-2">Your message</label>
+                            <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+
+                        </div>
+
+                    </div>
+                </div>
+                <!--Grid row-->
+
+            </form>
+
+            <div class="text-center text-md-left mt-3">
+                <a class="btn btn-primary"  (click)="sendmail()">Send</a>
+            </div>
+            <div class="status"></div>
+        </div>
+        <!--Grid column-->
+
+    </div>
+
+  </section>
+  <br>
+  <div class="container">
+    <p>&copy; 2024 AB-Plants - All Rights Reserved</p>
+      <address>
+          Visit us at: Gachibowli , Hyderabad, India<br>
+          
+      </address>
+  </div>
+  <!--Section: Contact v.2-->
+
+    </div>
+
+   </div>
+
+</div>
+
+
+

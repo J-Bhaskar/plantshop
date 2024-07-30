@@ -3,5 +3,100 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "ecommprj": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ecommprj",
+      "sourceRoot": "projects/ecommprj/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/ecommprj",
+            "index": "projects/ecommprj/src/index.html",
+            "browser": "projects/ecommprj/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/ecommprj/tsconfig.app.json",
+            "assets": [
+              "projects/ecommprj/src/favicon.ico",
+              "projects/ecommprj/src/assets"
+            ],
+            "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/ecommprj/src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ],
+            "scripts": ["node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "ecommprj:build:production"
+            },
+            "development": {
+              "buildTarget": "ecommprj:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "ecommprj:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/ecommprj/tsconfig.spec.json",
+            "assets": [
+              "projects/ecommprj/src/favicon.ico",
+              "projects/ecommprj/src/assets"
+            ],
+            "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/ecommprj/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "263eb73b-2e1e-4d34-8428-c70863efe1e1"
   }
 }

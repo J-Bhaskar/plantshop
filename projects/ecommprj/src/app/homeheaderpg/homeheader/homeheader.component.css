@@ -1,0 +1,14 @@
+.imglogo
+{
+  border-radius: 50%;
+}
+.matbar{
+  border-radius: 20px;
+  color: rgb(14, 145, 64);
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+

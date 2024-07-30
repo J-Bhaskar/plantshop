@@ -1,0 +1,38 @@
+<div class="container">
+  <div style="display:grid;grid-template-columns:auto auto auto auto; grid-column-gap: 50px;grid-row-gap: 50px;" class="container g-2">
+
+    <div *ngFor="let a of pt">
+      <div class="card shadow-lg">
+        <div class="card-header text-center text-danger">
+            <strong class="fs-3"> {{a.prnm}} </strong>
+        </div>
+
+        <div class="card-body d-flex justify-content-center">
+          <img src="data:image/*;base64,{{a.pic}}" height="250" width="200"  (click)="tooltip.toggle()">
+          <span #tooltip="matTooltip"
+          matTooltip={{a.desc}}
+          matTooltipPosition="right"></span>
+
+        </div>
+
+        <div class="card-footer text-center">
+            <div style="font-size:25px;">Rs. {{a.price}}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <button class="btn btn-warning" (click)="addtolocalstorage(a)" > Add To Cart </button>
+
+                  </div>
+
+        </div>
+    </div>
+    <div class="m-5"></div>
+
+
+    </div>
+
+    </div>
+
+
+  </div>
+
+
+

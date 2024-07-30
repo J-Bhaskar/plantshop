@@ -1,0 +1,104 @@
+
+
+
+<table class="table table-responsive">
+
+  <thead>
+    <tr>
+       <th> Images </th>
+       <th> Produt Name </th>
+       <th> Quantity </th>
+       <th> Price </th>
+       <th> Category </th>
+       <th colspan="2" class="text-center"> Actions </th>
+    </tr>
+  </thead>
+<tbody>
+  @for(a of prdt | paginate: { itemsPerPage: count, currentPage: p };track a )
+  {
+    <tr>
+        <td> <img src="data:image/*;base64,{{a.pic}}" height="50" width="50" style="border-radius: 50%;" (click)="tooltip.toggle()">
+
+          <span #tooltip="matTooltip"
+          matTooltip={{a.desc}}
+          matTooltipPosition="right"></span>
+
+        </td>
+        <td> {{ a.prnm }}</td>
+        <td> {{ a.qty }}</td>
+        <td> {{ a.price }}</td>
+        <th> {{ a.ct.catnm }}</th>
+        <td> <button  class="btn btn-small btn-warning" data-bs-toggle="modal" data-bs-target="#mod_2" (click)="updateprdtid(a)" > Update </button></td>
+        <td> <button  class="btn btn-small btn-danger" (click)="deleteprdt(a.id)"> Delete </button></td>
+    </tr>
+  }
+</tbody>
+</table>
+
+<div class="text-right">
+  <pagination-controls (pageChange)="p=$event"></pagination-controls>
+</div>
+
+<div class="modal fade" id="mod_2" aria-hidden="true">
+  <form>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Update Information </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="updateclose()"></button>
+        </div>
+        <div class="modal-body">
+
+            <!-- modal body -->
+
+            <div class="container mt-5 g-2">
+
+                 <div class="form-group">
+                      <div class="row">
+                              <div class="col-sm-4">
+                                      <label for="prnm" class="form-label"> Product Name :  </label>
+                              </div>
+                              <div class="col-sm-6">
+                                <input class="form-control"
+                                type="text" name="prnm" id="prnm" placeholder="{{ prnm }}" [(ngModel)]="prnm"/>
+                              </div>
+                      </div>
+                      <br>
+                      <div class="row">
+                          <div class="col-sm-4">
+                                  <label for="price" class="form-label"> Price :  </label>
+                          </div>
+                          <div class="col-sm-6">
+                              <input type="text" class="form-control"
+                              id="price" name="price" placeholder="Price" [(ngModel)]="price">
+                          </div>
+                      </div>
+                      <br>
+                      <div class="row">
+                          <div class="col-sm-4">
+                                  <label for="qty" class="form-label"> Quantity :  </label>
+                          </div>
+                          <div class="col-sm-6">
+                              <input type="text" class="form-control"
+                              id="qty" name="qty" placeholder="Quantity" [(ngModel)]="qty">
+                          </div>
+                      </div>
+
+                </div>
+
+            </div>
+
+
+
+                <!-- Form Ends -->
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="updatesave()">Update</button>
+        </div>
+      </div>
+    </div>
+    </form>
+  </div>
+
